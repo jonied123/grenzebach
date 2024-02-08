@@ -1,0 +1,31 @@
+<div class="bodyContainer">
+    <div class="navbar">
+        <a class="backButton" routerLink="remote">&lt; Back</a>
+        <div class="title">Details zur Fehlermeldung</div>
+    </div>
+
+    <div id="error-message">
+        <h2>Fehler: </h2>
+        <p>{{ errormeta.errorMessage }}</p>
+        <h3>Infos:</h3>
+        <p>Datum: {{ errormeta.errorDate }}</p>
+        <p>Zeit: {{ errormeta.errorTime }}</p>
+        <p>Ort: {{ errormeta.errorPosition }}</p>
+        <p>Fahrzeug: {{ errormeta.agvNumber }}</p>
+        <p>Fehlerposition: {{errormeta.errorLocation}}</p>
+    </div>
+    <div id="symptoms">
+        <h3>Mögliche Symptome beim Auftritt dieses Fehlers:</h3>
+        <ul *ngFor="let item of errors">
+            <li>{{ item.syntomText }}</li>
+        </ul>
+    </div>
+
+    <div id="buttons">
+        <button type="button" (click)="goToSchrittanleitung();">Schrittanleitung zur Fehlerbehebung</button>
+    </div>
+    <div id="buttons">
+        <button type="button" (click)="goToErrorLog();">Fehler aufzeichnen</button>
+    </div>
+</div>
+<router-outlet />
